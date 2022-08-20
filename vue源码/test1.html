@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let uid = 0
+        // class A {
+        //     constructor() {
+        //         this.id = uid++
+        //         this.num = 0
+        //     }
+        //     get(params) {
+        //         this.num = params
+        //         console.log(this)
+        //     }
+        // }
+        // // const a = new A()
+        // new A().get(1)
+        // new A().get(2)
+
+        // let B = {
+        //     print: function () {
+        //         console.log(this)
+        //     }
+        // }
+
+        // function C() {
+        //     console.log(this)
+        // }
+
+        // let fun = new Function('a')
+        // console.log(fun)
+
+        var myArray = [1, 2, 4, 5, 6, 7];
+        Array.prototype.name = "数组";
+        // myArray.getName = function () { return this.name; }
+        Array.prototype.getName = { function() { return this.name; } }
+        Object.defineProperty(Array.prototype, "getName", {
+            enumerable: false
+        })
+        let myObject = {
+            name: 1,
+            age: 14,
+            address: 2
+        }
+        myObject.a = 3
+        myObject.f = function () {
+            console.log(this.a)
+        }
+        for (var value of myObject) {
+            console.log(value);
+        }
+        // console.log(Array.prototype)
+        // for (let key in myArray) {
+        //     console.log(myArray[key])
+
+        // }
+
+    </script>
+</body>
+
+</html>
